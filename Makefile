@@ -4,7 +4,7 @@ install-singularity: install-singularity.sh
 	./install-singularity.sh
 
 build-spades_sandbox: Singularity.spades
-	sudo singularity build --sandbox build/spades_sandbox
+	sudo singularity build --sandbox build/spades_sandbox Singularity.spades
 
 build-spades: Singularity.spades
 	sudo singularity build build/spades.sif Singularity.spades

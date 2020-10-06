@@ -9,7 +9,7 @@ org.label-schema.vendor="Rocker Project"
 maintainer="Carl Boettiger <cboettig@ropensci.org>"
 
 %files
-spades-setup.R /spades-setup.R
+spades-setup_cran.R /spades-setup.R
 
 
 %post
