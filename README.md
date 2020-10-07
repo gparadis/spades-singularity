@@ -12,7 +12,6 @@ Not sure which flavour to use? Read on!
 
 Note that, if you do not have Singularity installed yet, you will need to run `make install-singularity` first.
 
-## Details
 
 ## Singularity container definition files
 
@@ -24,17 +23,16 @@ You can also create new custom flavours by copying and modifying some files from
 
 The base container flavour includes the latest stable CRAN versions of core SpaDES R packages. This base can be used to run SpaDES models directly (for simpler projects, where the CRAN packages are all you need). The base image also serves as a _bootstrap_ image for other flavours. The base container flavour is implemented in `Singularity.spades_base` and `spades-setup_base.R`.
 
-## GitHub flavours
+### GitHub flavours
 
 There are two GitHub container flavours (`github-master`, `github-development`). These install core SpaDES R packages from the latest code pushed to GitHub repositories for `master` and `development` branches, respectively. The GitHub container flavours are implemented in the `Singularity.spades-github_BRANCH` and `spades-setup_github-BRANCH` (where `BRANCH` is one of `master` or `development`). 
 
 The GitHub container flavours are _bootstrapped_ from the base container flavour. Defintion file implementation assumes that a local base container image is available in path `build/spades.sif`, so the base container must be built first (the base container will automatically get built if not present if you run `make build flavour=FLAVOUR`, where `FLAVOUR` is any value except for `base`). 
 
-## Custom flavours
+### Custom flavours
 
 You can create a custom container flavour but copying `Singularity.spades_github-master` and `spades-setup_github-master.R`---rename these to `Singularity.spades_foo` and `spades-setup_foo.R` (where `foo` is whatever unique flavour name you want) and modify as required. Minimally, you just need to edit one line of code in the Singularity definition file to point to `spades-setup_foo.R`, and edit the code in `spades-setup_foo.R` to install whatever versions of SpaDES R packages you need.
 
-We have implemented analogous `build*`, `sign*` and `push*` make targets in the `Makefile` for each of the two GitHub container flavours. 
 
 ## Makefile details
 
