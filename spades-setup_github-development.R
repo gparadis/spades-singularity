@@ -1,7 +1,4 @@
-Sys.getenv()
 install.packages(c("devtools", "reticulate"))
-
-
 library(devtools)
 deps = TRUE
 branch = "development"

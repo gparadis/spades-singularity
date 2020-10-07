@@ -1,5 +1,5 @@
 Bootstrap: localimage
-From: build/spades.sif
+From: build/spades_base.sif
 
 %labels
 org.label-schema.license="GPL-2.0" 

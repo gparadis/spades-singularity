@@ -4,12 +4,13 @@ Stage: spython-base
 
 %labels
 org.label-schema.license="GPL-2.0" 
-org.label-schema.vcs-url="https://github.com/rocker-org/rocker-versioned" 
-org.label-schema.vendor="Rocker Project" 
-maintainer="Carl Boettiger <cboettig@ropensci.org>"
+org.label-schema.vcs-url="https://github.com/gparadis/spades-singularity" 
+org.label-schema.vendor="Predictive Ecology" 
+maintainer="Greg Paradis <greg.paradis@ubc.ca>"
+
 
 %files
-spades-setup_cran.R /spades-setup.R
+spades-setup_base.R /spades-setup.R
 
 
 %post

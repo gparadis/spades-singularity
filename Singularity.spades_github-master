@@ -1,25 +1,24 @@
 Bootstrap: localimage
-From: build/spades.sif
-
-%labels
-org.label-schema.license="GPL-2.0" 
-org.label-schema.vcs-url="https://github.com/gparadis/spades-singularity" 
-org.label-schema.vendor="Predictive Ecology" 
-maintainer="Greg Paradis <greg.paradis@ubc.ca>"
+From: build/spades_base.sif
 
 %files
 spades-setup_github-master.R /spades-setup.R
 
+#%setup
 
 %post
+printenv
+#export GITHUB_PAT=$GITHUB_PAT
+#echo GITHUB_PAT $GITHUB_PAT
+
 # install SpaDES R packages (and dependencies)
 Rscript spades-setup.R
-
 # clean up
 rm /spades-setup.R
 
 
 %environment
+
 export PATH=/usr/lib/rstudio-server/bin:$PATH
 export GUROBI_HOME="/opt/gurobi/linux64"
 export PATH="${PATH}:${GUROBI_HOME}/bin"
